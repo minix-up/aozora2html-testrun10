@@ -1,0 +1,68 @@
+txt2xhtmlツール
+
+青空文庫で公開されているテキストデータ（注記を付加したもの）からXHTML形式のデータを生成するプログラムと必要なファイル群。
+
+
+変換
+
+$ t2hs.rb <入力ファイル> <出力ファイル>
+
+リターンコード： 0: 成功 1: 失敗
+
+説明
+
+ダウンロードの内容
+
+txt2xhtmlツール一式をダウンロードした場合、以下のようなディレクトリ構造となります。
+
+README		このファイル
+t2hs.rb 	変換プログラム
+aozora.css 	スタイルシート
+css/ 		スタイルシートが用いるファイル群（圏点画像）
+gaiji/ 		外字グリフ画像
+sample/ 	確認用のtxtファイルとhtmlファイル
+output/username/ 出力ファイルを配置するディレクトリ(空）
+contents.js 	目次表示用Javascript
+golibcard.js 	図書カードへのリンク生成用
+
+このプログラムは、注記されたテキストファイルかXHTMLを生成するためのものですが、現在公開されている青空文庫サーバのディレクトリ構造を意識して（構造をハードコードした状態で）作られています。スタイルシートの相対パスが2階層上で参照されていたり、外字のグリフを読み込むための相対パスも同様です。
+
+
+実行方法
+
+$ ./t2hs.rb input.txt  ./output/userrname/output.html
+
+あるいは
+
+$ ruby1.9 t2hs.rb input.txt ./output/username/output.html
+
+ブラウザで./output/username/output.htmlを表示すれば、
+
+スタイルシートや外字グリフ、圏点画像が適応された状態を確認することができます。
+
+動作検証
+
+sampleディレクトリにあるファイルを使って、動作検証ができます。
+
+$  ./t2hs.rb sample/chukiichiran_kinyurei.txt ./output/username/test1.html
+
+$ diff ./output/username/test1.html sample/chukiichiran_kinyurei.html
+
+動作実績
+
+このプログラムは、Ubuntu 8.04/9.10, FreeBSD 7.1 で稼働実績がありますが、無保証です。
+
+配布条件
+
+txt2xhtmlツール
+CC0 1.0(http://creativecommons.org/publicdomain/zero/1.0/)によります。
+
+外字グリフデータ
+JIS X 0213 の画像ファイルは、jiskan16-2000(http://www12.ocn.ne.jp/%7Eimamura/jisx0213.html)を元にしたHabian(http://wakaba-web.hp.infoseek.co.jp/FONT/Habian/Habian.htm)をdoodle(http://www.vector.co.jp/soft/winnt/prog/se219120.html)で変換して作りました。
+
+---
+この文書およびその関連文書の最新版は、青空文庫組版案内サイト(http://kumihan.aozora.gr.jp/)にあります。
+
+2010.4.1 青空文庫
+
+
