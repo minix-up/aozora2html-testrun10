@@ -1,1 +1,1 @@
-chuki.zip
+chuki.tar.gz
